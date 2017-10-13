@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>IRIS</title>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css">
+		
+		<link rel="stylesheet" href="../assets/css/styles.css">
+	</head>
+	<body>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+
+		<!-- <script src="../assets/js/react-dom.js"></script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+		<script src="https://npmcdn.com/react-router@3.0.2/umd/ReactRouter.min.js"></script>
+
+		<script src="https://rawgit.com/pa7/heatmap.js/master/build/heatmap.js"></script>
+		<!-- <script src="../assets/js/heatmap-react.min.js"></script> -->
+		<script src="../assets/js/heatmap_view.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/jsx" src="../assets/js/react-heatmap.js"></script>
+
+		<div id="container"></div>
+
+		<script type="text/babel">
+			var {
+				Router,
+				Route,
+				IndexRoute,
+				IndexLink,
+				hashHistory,
+				Link } = ReactRouter;
+
+			var App = React.createClass({
+				render: function() {
+					return (
+						<section className="hero">
+							<div className="hero-head nav-hero">
+								<header className="nav">
+									<div className="container">
+										<div className="nav-left">
+											<a className="nav-item">
+												<h1 className="title">
+													<strong>IRIS</strong>
+												</h1>
+											</a>
+										</div>
+										<span className="nav-toggle">
+											<span></span>
+											<span></span>
+											<span></span>
+										</span>
+										<div className="nav-right nav-menu">
+											<span className="nav-item">
+												<div className="field is-grouped">
+													<p className="control">
+														<a className="button is-primary">
+															Log Out
+														</a>
+													</p>
+												</div>
+											</span>
+										</div>
+									</div>
+								</header>
+							</div>
+
+							<div className="section no-padding">
+								<div className="columns">
+									<div className="column is-3-desktop is-3-tablet is-12-mobile" id="side-nav">
+										<aside className="menu">
+											<p className="menu-label">
+												General
+											</p>
+											<ul className="menu-list">
+												<li><Link to="/profile-settings" activeClassName="active-link">Profile Settings</Link></li>
+												<li><Link to="/package-settings" activeClassName="active-link">Package Settings</Link></li>
+											</ul>
+											<p className="menu-label">
+												Features
+											</p>
+											<ul className="menu-list">
+												<li><Link to="/heatmap" activeClassName="active-link">Heatmap</Link></li>
+												<li><Link to="/hitrate" activeClassName="active-link">Hitrate</Link></li>
+												<li><Link to="/suggestions" activeClassName="active-link">UX Suggestions</Link></li>
+												<li><Link to="/more" activeClassName="active-link">More Features</Link></li>
+											</ul>
+											<p className="menu-label">
+												Transactions
+											</p>
+											<ul className="menu-list">
+												<li><Link to="/payment" activeClassName="active-link">Payment</Link></li>
+											</ul>
+										</aside>
+									</div>
+									
+									{/* views come here */}
+									<div className="column has-text-centered" id="views">
+										{this.props.children}
+									</div>
+									
+								</div>
+							</div>
+						</section>
+					)
+				}
+			});
+
+			var Home = React.createClass({
+				render: function() {
+					return(
+						<div className="column has-text-centered">
+							<div className="box" id="box-thingy">
+								<p>
+									<strong>Download required scripts</strong>
+									<br/>
+									Add these scripts to your website to enable functionalities
+								</p>
+								<hr/>
+								<div className="columns has-text-centered">
+									<div className="column is-4-desktop is-12-mobile">
+										<a className="button is-medium">
+											<span className="icon is-medium">
+												<i className="fa fa-download"></i>
+											</span>
+											<span>Heatmap</span>
+										</a>
+									</div>
+									<div className="column is-4-desktop is-12-mobile">
+										<a className="button is-medium">
+											<span className="icon is-medium">
+												<i className="fa fa-download"></i>
+											</span>
+											<span>Suggestions</span>
+										</a>
+									</div>
+									<div className="column is-4-desktop is-12-mobile">
+										<a className="button is-medium">
+											<span className="icon is-medium">
+												<i className="fa fa-download"></i>
+											</span>
+											<span>Hitrate</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					)
+				}
+			});
+
+			var Heatmap = React.createClass({
+				render: function() {
+					return(
+						<div className="demo-wrapper">
+							<div className="box heatmap" id="heatmap-viewer">
+								HEATMAP
+							</div>
+						</div>
+					)
+				}
+			});
+
+
+			var d = document.querySelector('#container');
+
+			ReactDOM.render(
+				<div>
+					<App/>
+				</div>,
+				d
+			);
+
+			ReactDOM.render(
+				<Router history = {hashHistory}>
+					<Route path = "/" component={App}>
+						<IndexRoute component={Home}/>
+						<Route path="heatmap" component={Heatmap}/>
+					</Route>
+				</Router>,
+				d
+			)
+
+		</script>
+	</body>
+</html>
