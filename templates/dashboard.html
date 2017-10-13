@@ -7,7 +7,7 @@
 		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.min.css">
-		<link rel="stylesheet" href="../assets/css/styles.css">
+		<link rel="stylesheet" href="../static/css/styles.css">
 	</head>
 	<body>
 		<section class="hero">
@@ -56,7 +56,7 @@
 								Features
 							</p>
 							<ul class="menu-list">
-								<li><a href="./heatmap.html">Heatmap</a></li>
+								<li><a href="http://localhost:8888/heatmap/">Heatmap</a></li>
 								<li><a>Hitrates</a></li>
 								<li><a>UX Suggestions</a></li>
 								<li><a>More features</a></li>
@@ -69,17 +69,46 @@
 							</ul>
 						</aside>
 					</div>
-					<div class="column">
-						<div class="demo-wrapper">
-							<div class="box heatmap" id="heatmap-viewer">
-								HEATMAP
+					<div class="column has-text-centered">
+						<div class="box" id="box-thingy">
+							<p>
+								<strong>Download required scripts</strong>
+								<br>
+								Add these scripts to your website to enable functionalities
+							</p>
+							<hr>
+							<div class="columns has-text-centered">
+								<div class="column is-4-desktop is-12-mobile">
+									<a class="button is-medium">
+										<span class="icon is-medium">
+											<i class="fa fa-download"></i>
+										</span>
+										<span>Heatmap</span>
+									</a>
+								</div>
+								<div class="column is-4-desktop is-12-mobile">
+									<a class="button is-medium">
+										<span class="icon is-medium">
+											<i class="fa fa-download"></i>
+										</span>
+										<span>Suggestions</span>
+									</a>
+								</div>
+								<div class="column is-4-desktop is-12-mobile">
+									<a class="button is-medium">
+										<span class="icon is-medium">
+											<i class="fa fa-download"></i>
+										</span>
+										<span>Hitrate</span>
+									</a>
+								</div>
 							</div>
 						</div>
 					</div>
+				</div>
 			</div>
 		</section>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="https://rawgit.com/pa7/heatmap.js/master/build/heatmap.js"></script>
-		<script src="../assets/js/heatmap_view.js"></script>
+		<script src="../static/js/hamburger.js"></script>
 	</body>
 </html>
