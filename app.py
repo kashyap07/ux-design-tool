@@ -4,6 +4,7 @@ from datetime import date
 import json
 from Activity import Activity
 
+
 # creating flask application
 app = Flask(__name__)
 app.config["REDIS_URL"] = "redis://localhost"
@@ -24,9 +25,10 @@ def static_page(page_name):
 def store_data():
 	if(request.method == 'POST'):
 		if('data' in request.form and request.form['data']):
+			activity = Activity()
 			try:
 				data = json.loads(request.form['data']) # data in json
-				activity = Activity()
+				#activity = Activity()
 			except Exception as e:
 				print (str(e))
 			finally:

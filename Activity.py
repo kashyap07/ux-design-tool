@@ -13,9 +13,10 @@ class Activity(object):
     # versioning db objects is crutial
     # it helps in distinguishing modified objects
     # and prevents breakdown
-    id = int(time()) # interim, computing id should change
+    # id = int(time()) # interim, computing id should change
 
     def __init__(self):
+        id = int(time())
         self.id = id
         id += 1
 
@@ -26,7 +27,7 @@ class Activity(object):
     # pickle object and save to db
     def save(self):
         cache_key = Activity.get_cache_key(self.id)
-        redis_cache.setex(cache_key, EXPIRATION_TIME, pickle.dumps(self))
+        redis_cache.setex(cache_key, self.EXPIRATION_TIME, pickle.dumps(self))
 
     # compute key used to access object
     @staticmethod
