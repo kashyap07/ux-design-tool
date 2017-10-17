@@ -14,7 +14,7 @@ class Activity(object):
     # it helps in distinguishing modified objects
     # and prevents breakdown
 
-    # id = int(time()) # interim, computing id should change
+    # interim, computing id should change
     id = int(time())
     
     def __init__(self):
