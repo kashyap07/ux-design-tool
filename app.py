@@ -20,7 +20,6 @@ def index():
 def static_page(page_name):
     return render_template('%s.html' % page_name)
 
-
 @app.route('/store', methods=['POST'])
 def store_data():
 	if(request.method == 'POST'):
@@ -28,7 +27,6 @@ def store_data():
 			activity = Activity()
 			try:
 				data = json.loads(request.form['data']) # data in json
-				#activity = Activity()
 			except Exception as e:
 				print (str(e))
 			finally:
@@ -46,3 +44,4 @@ if __name__ == "__main__":
 		host=('0.0.0.0'),
 		port=8888
 	)
+	
