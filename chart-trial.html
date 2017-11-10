@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript">
+
+window.onload = function (){
+  a();
+}
+function a(){
+  list=[100,11000,1200,1300,140]//needs to be recieved from spoorti
+  var chart = new CanvasJS.Chart("chartContainer", {
+    title:{
+      text: "Hitrate in the past 24 hours:"              
+    },
+    data: [              
+    {
+      // Change type to "doughnut", "line", "splineArea", etc.
+      type: "column",
+      dataPoints: [
+        { label: "00:00-01:00",  y: list[0]  },
+        { label: "01:00-02:00", y: list[1]  },
+        { label: "02:00-03:00", y: list[2]  },
+        { label: "03:00-04:00",  y: list[3]  },
+        { label: "04:00-05:00",  y: list[4]  }//extend till 23:00 - 24:00
+      ]
+    }
+    ]
+  });
+  chart.render();
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<!--this kashyap will add to his html page. -->
+</body>
+</html>
