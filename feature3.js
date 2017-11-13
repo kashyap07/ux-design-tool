@@ -1,6 +1,6 @@
-	<script>
-	var startTime=new Date().getTime();
-  var endTime=new Date().getTime();
+
+var startTime=new Date().getTime();
+ var endTime=new Date().getTime();
 	window.onscroll=senddet;
 	
     function senddet()
@@ -28,5 +28,3 @@
       startTime=new Date().getTime();
       }
     }
-
-</script>
