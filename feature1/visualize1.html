@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<meta charset="UTF-8"> 
+<html>
+<head>
+<script src="heatmap.js"></script>
+<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript" src="d1.json"></script>
+
+<script type="text/javascript">
+window.onload = function (){
+  a();
+}
+function a(){
+ // list=  //needs to be recieved from spoorti
+  data = JSON.parse(d1);
+  for(i = 0;i<data.length;i++)
+	{
+		data[i]["x"] = parseInt(data[i]["x"]);
+		data[i]["y"] = parseInt(data[i]["y"]);
+		data[i]["count"] = parseInt(data[i]["count"]);
+	}
+  var heatmap = h337.create({
+    container:  document.getElementById('chartContainer')
+  });
+
+  heatmap.setData({
+    max: 5,
+    data: data
+  });
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<!--this kashyap will add to his html page. -->
+</body>
+</html>
