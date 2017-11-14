@@ -3,6 +3,8 @@ from flask import request
 from flask import jsonify
 from flask_cors import CORS
 import csv
+from collections import Counter
+import sqlite3
 
 app = Flask(__name__)
 CORS(app)
@@ -18,15 +20,25 @@ def send2():
 	print("from",fromcoord)
 	print("to", tocoord)
 	
-	with open("csv2.csv", "a") as file:#Yash has to use this
+	with open("csv2.csv", "a") as file:
 		csv_file = csv.writer(file)
-		csv_file.writerow([str(fromcoord), str(tocoord)])#Contains from and to as String format.	
+		csv_file.writerow([str(fromcoord), str(tocoord)])	
 	file.close()
 	
+	conn = sqlite3.connect('example.db')
+	c = conn.cursor()
+	c.execute('''drop table if exists feature2''')
+	c.execute('''CREATE TABLE feature2 (fromcoord text, tocoord text)''')
+	conn.commit()
+	l=[(str(fromcoord), str(tocoord))]
+	c.executemany('INSERT INTO feature2 VALUES (?,?)', l)
+	
+	for row in c.execute('SELECT * FROM feature2 ORDER BY fromcoord'):
+		print("ROW", row)
+		
 	'''
 	fromTime=[]
 	endTime=[]
-	
 	count=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 	with open("csv2.csv") as f: 
 		new = []
@@ -55,7 +67,6 @@ def send2():
 			#print("COUNT",count)
 			writer.writerow([count[i]])
 	'''
-	
 	return 'Successful'
         
 if __name__ == '__main__':
