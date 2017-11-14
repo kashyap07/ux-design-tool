@@ -63,7 +63,7 @@ def send():
 
 	with open('database1_heatmaps.csv', 'w') as f:#database1_heatmaps is what Yash will read.
 		writer = csv.writer(f) 
-		writer.writerow(['X','Y','COUNT'])
+		writer.writerow(['X','Y','count'])
 		for k,v in counter.items():
 			writer.writerow([k[0], k[1], v])#Writing x,y,count
 	
