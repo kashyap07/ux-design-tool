@@ -80,3 +80,159 @@ div#side-nav.column.is-3-desktop.is-3-tablet.is-12-mobile {
 	
 	height: 55vh;
 }
+
+
+
+/*
+	sphagetti code starts here
+*/
+.discussion-box {
+	opacity: 1;
+	border-radius: 5px;
+	height: calc(100% - 60px) !important;
+	max-height: 200px !important;
+	min-height: 100px !important;
+	width: 280px;
+	background: rgba(255, 255, 255, 0.9);
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	margin: auto;
+	z-index: 10;
+	box-shadow: 2px 10px 30px rgba(22, 20, 19, 0.4);
+}
+
+.person-img {
+	position: absolute;
+	left: 0;
+	top: -50px;
+	right: 0;
+	margin: auto;
+	width: 101px;
+	height: 50px;
+	background: transparent;
+	z-index: 12;
+}
+
+.half {
+	margin: auto;
+    width: 80px;
+    height: 40px;
+    background-color: #fff;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    border-bottom: 0;
+    box-shadow: 1px 4px 20px rgba(22, 20, 19, 0.6);
+    -webkit-box-shadow: 1px 4px 20px rgba(22, 20, 19, 0.6);
+}
+
+.circle {
+	display: block;
+	width: 80px;
+	height: 80px;
+	margin: 1em auto;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	border-radius: 99em;
+	border: 2px solid #fff;
+}
+
+.message-box {
+	width: 90%;
+	background: #fff;
+	margin: 2px auto;
+	padding: 10px;
+	position: relative;
+	border-radius: 5px;
+	height: 10vh;
+	border: 1px solid #ccc;
+}
+
+.message-box .message-input {
+	background: none;
+	border: none;
+	outline: none !important;
+	resize: none;
+	/* color: rgba(255, 255, 255, .8);*/
+	font-size: 15px;
+	height: 9vh;
+	margin: 0;
+	padding-right: 20px;
+	width: 265px;
+	color: #444;
+}
+.message-box textarea:focus:-webkit-placeholder {
+	color: transparent;
+}
+.message-box .message-submit {
+	position: absolute;
+	z-index: 1;
+	top: 9px;
+	right: 10px;
+	color: #4A90E2;
+	border: none;
+	background: #fff;
+	font-size: 12px;
+	text-transform: uppercase;
+	line-height: 1;
+	padding: 6px 10px;
+	border-radius: 5px;
+	outline: none !important;
+	-webkit-transition: background .2s ease;
+	transition: background .2s ease;
+	cursor: pointer;
+}
+.message-box .message-submit:hover {
+	background: #fff;
+	color: #333;
+}
+
+#close-btn {
+	float: right;
+	padding: 10px;
+}
+
+.button-container {
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	border-radius:5px;
+	border-radius: 5px;
+	height: calc(100% - 60px) !important;
+	max-height: 200px !important;
+	min-height: 100px !important;
+	width: 280px;
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	margin: auto;
+}
+
+.btn-expand {
+	width:70px;
+	height:70px;
+	background-color: #1ea0f3;
+	border-radius:500px;
+	position: absolute;
+	cursor:pointer;
+	top: 75%;
+	left: 80%;
+	transform: translate(-60%, -60%);
+	transition: all 0.6s;
+}
+.btn-expand-clicked{
+	width:500px;
+	height:500px;
+	background: rgba(255, 255, 255, 0.9);
+	font-size: 305px;
+}
+
+.hidden {
+	display: none;
+}
+
+#edit-button {
+	padding: 20px;
+	font-size: 35px;
+}
