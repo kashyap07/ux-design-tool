@@ -236,3 +236,17 @@ div#side-nav.column.is-3-desktop.is-3-tablet.is-12-mobile {
 	padding: 20px;
 	font-size: 35px;
 }
+
+.ifram {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	padding: 0px;
+	margin: 0px;
+	border-width: 0px;
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
