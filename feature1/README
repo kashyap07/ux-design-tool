@@ -1,0 +1,7 @@
+Follow the order of execution:
+1. The input file should be csv and there should be heading. The format of input is (X,Y,count).
+2. Run python csvTojson.py in terminal -> output file is d1.json
+3. Double click the visualize1.html and a heatmap will be plotted
+
+*Please download the heatmap.js and keep it in the same folder
+*Please see the input.csv for reference

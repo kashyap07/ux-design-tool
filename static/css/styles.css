@@ -78,7 +78,8 @@ div#side-nav.column.is-3-desktop.is-3-tablet.is-12-mobile {
 	margin-left: 10vw;
 	margin-right: 10vw;
 	
-	height: 55vh;
+	height: 384px;
+	width: 673px;
 }
 
 
@@ -237,6 +238,7 @@ div#side-nav.column.is-3-desktop.is-3-tablet.is-12-mobile {
 	font-size: 35px;
 }
 
+<<<<<<< Updated upstream
 .ifram {
 	width: 100%;
 	height: 150%;
@@ -250,3 +252,20 @@ div#side-nav.column.is-3-desktop.is-3-tablet.is-12-mobile {
 	left: 0;
 	right: 0;
 }
+=======
+
+/*
+
+*/
+
+#show-heatmap {
+	float: right;
+}
+
+#button-div {
+	margin-left: 10vw;
+	margin-right: 10vw;
+	
+	width: 673px;
+}
+>>>>>>> Stashed changes

@@ -1,3 +1,4 @@
+
 # ux-design-tool
 SE-Team-3
 
@@ -13,8 +14,3 @@ None of this has been executed yet, so please install
 run app.py 
 ```python3 app.py```  
 open ```http://localhost:8888/```
-
-
-and then try out this things.
-
-Thanks.

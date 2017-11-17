@@ -1,0 +1,6 @@
+Follow the order of execution:
+1. The input file should be csv and there should be heading. The format of input is ("label","y").
+2. Run python csvTojson.py in terminal -> output file is d3.json
+3. Double click the visualize3.html and a graph will be plotted
+
+*Please see the input.csv for reference
