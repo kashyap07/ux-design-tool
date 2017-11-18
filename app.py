@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from flask import request
 from datetime import date
 import json
-from Activity import Activity
 import csv
 import json
 import collections
@@ -25,22 +24,6 @@ def index():
 def static_page(page_name):
     return render_template('%s.html' % page_name)
 
-
-@app.route('/store', methods=['POST'])
-def store_data():
-	if(request.method == 'POST'):
-		if('data' in request.form and request.form['data']):
-			activity = Activity()
-			try:
-				data = json.loads(request.form['data']) # data in json
-			except Exception as e:
-				print (str(e))
-			finally:
-				activity.insert_activity(data)
-				activity.save()
-			return '1'
-	else:
-		return 'IncompleteArgsError'
 
 @app.route('/formgen')
 def appgen():
