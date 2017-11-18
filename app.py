@@ -3,9 +3,10 @@ from flask import request
 from datetime import date
 import json
 import csv
-import json
 import collections
+from collections import Counter
 from datetime import datetime
+import sqlite3
 
 
 # creating flask application
@@ -49,7 +50,7 @@ def click_data_store():
 		csv_file.writerow([str(xcoord), str(ycoord), str(time)])
 	file.close()
 	
-	conn = sqlite3.connect('example.db')
+	conn = sqlite3.connect('data/clickdata.db')
 	c = conn.cursor()
 	c.execute('''drop table if exists feature1''')
 	c.execute('''CREATE TABLE feature1 (xcoord text, ycoord text, time text)''')
@@ -115,7 +116,7 @@ def scroll_data_store():
 		csv_file = csv.writer(file)
 		csv_file.writerow([str(poscoord), str(timespentcoord)])
 		
-	conn = sqlite3.connect('example.db')
+	conn = sqlite3.connect('data/scrolldata.db')
 	c = conn.cursor()
 	c.execute('''drop table if exists feature3''')
 	c.execute('''CREATE TABLE feature3 (poscoord text, timespentcoord text)''')
