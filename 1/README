@@ -1,9 +1,0 @@
-Follow the order of execution:
-
-1. Run python database.py and open a.html and do some clicks
-2. The input file should be csv and there should be heading. The format of input is (X,Y,value).
-3. Run python csvTojson.py in terminal -> output file is d1.json
-4. Double click the visualize1.html and a heatmap will be plotted
-
-*Please download the heatmap.js and keep it in the same folder
-*Please see the input.csv for reference

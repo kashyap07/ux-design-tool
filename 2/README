@@ -1,9 +1,0 @@
-Follow the order of execution:
-
-1. Run python database2.py and open a.html. Refresh a.html couple of times.
-2. The input file should be csv and there should not be any heading. The format of input is (From,To) in the following format: "Hours:Minutes"
-3. Run python count.py in terminal -> output file is output.csv
-4. Run python csvTojson.py in terminal -> output file is d2.json
-5. Double click the visualize2.html and a graph will be plotted
-
-*Please see the input.csv for reference
