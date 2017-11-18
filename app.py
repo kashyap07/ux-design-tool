@@ -36,6 +36,14 @@ def store_data():
 	else:
 		return 'IncompleteArgsError'
 
+@app.route('/formgen')
+def appgen():
+	return render_template('Form_index.html')
+
+@app.route('/download.html')
+def send():
+	#request.form['htmlform']
+	return "abc"
 
 if __name__ == "__main__":
 	app.run(
