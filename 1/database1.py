@@ -56,18 +56,15 @@ def send():
 
 	Z=zip(X,Y)
 	resultList = list(Z)
-	#print(resultList)
-
 	counter=Counter(resultList)
-	#print(counter)
 
-	with open('input.csv', 'w') as f:
+	with open('data/clickdata.csv', 'w') as f:
 		writer = csv.writer(f) 
 		writer.writerow(['x','y','value'])
 		for k,v in counter.items():
 			writer.writerow([k[0], k[1], v])
 	
-	return 'Successful'
+	return 'Success'
 		
 if __name__ == '__main__':
 	app.run(debug=True)

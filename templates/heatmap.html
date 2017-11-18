@@ -98,7 +98,7 @@
 						</div>
 						<br>
 						<div id="button-div">
-							<button class="button" id="show-heatmap">Show me my website's Heatmap!</button>
+							<button onclick="getheatmap();" class="button" id="show-heatmap">Show me my website's Heatmap!</button>
 						</div>
 					</div>
 			</div>
@@ -109,37 +109,25 @@
 		<script src="../static/js/heatmap_view.js"></script>
 
 		<script>
-			if (document.addEventListener) {
-				document.getElementsByTagName("body")[0].addEventListener("click", addclickpt);
-			} else if (document.attachEvent) {
-				document.getElementsByTagName("body")[0].attachEvent("onclick", addclickpt);
-			}
+			function getheatmap() {
+				$.ajax({
+					url: '/getheatmap',
+					dataType: 'text',
+					cache: false,
+					contentType: false,
+					processData: false,
+					type: 'get',
+					success: function(output) {
+						var data = JSON.parse(output);
 
-			function addclickpt() {
-				var x = event.clientX;
-				var y = event.clientY;
-				var t = new Date().toISOString();
-				var type = "click";
-				var coords = JSON.stringify({
-					"x" 	: x,
-					"y" 	: y,
-					"time" 	: t,
-					"type" 	: type
-				});
-
-				//send the coords to the server for database updates
-				var xhr = new XMLHttpRequest();
-				xhr.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-						console.log("sent");
+						// automatically removes previous points
+						heatmapInstance.setData({
+							max: 5,
+							data: data
+						});
 					}
-				};
-
-				var form = new FormData();
-				form.append("data", coords);
-				xhr.open("POST", "http://localhost:8888/store", true);
-				xhr.send(form);
-			}
+				});
+			};
 		</script>
 	</body>
 </html>

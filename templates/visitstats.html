@@ -95,7 +95,10 @@
 				</div>
 				<div class="column">
 					<div class="demo-wrapper">
-						
+						<div class="box heatmap" id="visits-viewer">
+							VISITS STATS
+
+						</div>
 					</div>
 					<br>
 				</div>
@@ -104,6 +107,54 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://rawgit.com/pa7/heatmap.js/master/build/heatmap.js"></script>
 	<script src="../static/js/hamburger.js"></script>
+	<script src="https://unpkg.com/frappe-charts@0.0.6/dist/frappe-charts.min.iife.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			$.ajax({
+				url: '/getvisitstats',
+				dataType: 'text',
+				cache: false,
+				contentType: false,
+				processData: false,
+				type: 'get',
+				success: function(output) {
+					var op = JSON.parse(output);
+					var arr = Object.values(op);
+
+					var data = {
+						labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '17', '18', '19', '20', '21', '22', '23'],
+
+						datasets: [{
+							title: "visit stats",
+							values: arr
+						}]
+					};
+
+					var chart = new Chart({
+						parent: "#visits-viewer",
+						title: "VISIT STATS for last 24hrs",
+						data: data,
+						type: 'bar',
+						height: 250,
+
+						colors: ['#3C8CE7'],
+
+						format_tooltip_x: d => (d + '').toUpperCase(),
+						format_tooltip_y: d => d + 'visits'
+					});
+
+					// force css
+					$('#visits-viewer.box.heatmap').css("margin-top", "15vh");
+					$('#visits-viewer.box.heatmap').css("margin-right", "100px");
+					$('#visits-viewer.box.heatmap').css("margin-left", "20px");
+					$('.chart').css("width", "1000px");
+					$('.chart-container').css("margin-left", "-30px")
+				}
+			});
+		});
+	</script>
+
 </body>
 
 </html>

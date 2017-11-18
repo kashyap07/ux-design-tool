@@ -73,7 +73,7 @@ div#side-nav.column.is-3-desktop.is-3-tablet.is-12-mobile {
 	margin-right: 10vw;
 }
 
-#heatmap-viewer {
+#heatmap-viewer, #scroll-viewer, #visits-viewer {
 	margin-top: 15vh;
 	margin-left: 10vw;
 	margin-right: 10vw;

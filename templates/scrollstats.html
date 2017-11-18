@@ -94,9 +94,12 @@
 					</aside>
 				</div>
 				<div class="column">
-					<div class="demo-wrapper">
-
-					</div>
+						<div class="demo-wrapper">
+							<div class="box heatmap" id="scrolls-viewer">
+								SCROLL STATS
+	
+							</div>
+						</div>
 					<br>
 				</div>
 			</div>
@@ -104,6 +107,54 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://rawgit.com/pa7/heatmap.js/master/build/heatmap.js"></script>
 	<script src="../static/js/hamburger.js"></script>
+	<script src="https://unpkg.com/frappe-charts@0.0.6/dist/frappe-charts.min.iife.js"></script>
+
+	<script>
+			$(document).ready(function() {
+				$.ajax({
+					url: '/getscrollstats',
+					dataType: 'text',
+					cache: false,
+					contentType: false,
+					processData: false,
+					type: 'get',
+					success: function(output) {
+						var op = JSON.parse(output);
+						var lbls = Object.keys(op);
+						var arr = Object.values(op);
+
+						var data = {
+							labels: lbls,
+	
+							datasets: [{
+								title: "scroll stats",
+								values: arr
+							}]
+						};
+	
+						var chart = new Chart({
+							parent: "#scrolls-viewer",
+							title: "SCROLL STATS for last 24hrs",
+							data: data,
+							type: 'bar',
+							height: 250,
+	
+							colors: ['#3C8CE7'],
+	
+							format_tooltip_x: d => (d + '').toUpperCase(),
+							format_tooltip_y: d => d + 'time units'
+						});
+	
+						// force css
+						$('#scrolls-viewer.box.heatmap').css("margin-top", "15vh");
+						$('#scrolls-viewer.box.heatmap').css("margin-right", "100px");
+						$('#scrolls-viewer.box.heatmap').css("margin-left", "20px");
+						$('.chart').css("width", "1000px");
+						$('.chart-container').css("margin-left", "-30px");
+					}
+				});
+			});
+		</script>
 </body>
 
 </html>

@@ -11,3 +11,7 @@ document.querySelector('.demo-wrapper').onclick = function(ev) {
 		value: 1
 	});
 };
+
+var heatmap = h337.create({
+	container:  document.getElementById('chartContainer')
+});
