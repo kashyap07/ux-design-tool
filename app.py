@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from flask import request
+from flask import request, Response
 from datetime import date
 import json
 import csv
@@ -8,32 +8,29 @@ from collections import Counter
 from datetime import datetime
 import sqlite3
 
-
 # creating flask application
 app = Flask(__name__)
 # app.config["REDIS_URL"] = "redis://localhost"
-
 
 # index route
 @app.route('/')
 def index():
 	return render_template('index.html')
 
+@app.route('/formgen')
+def appgen():
+	return render_template('Form_index.html')
+
+@app.route('/download.html', methods=['POST'])
+def send():
+	res = Response(request.form['fstring'])
+	res.headers["Content-Type"] = "application/force-download"
+	return res
 
 # static page rendering
 @app.route('/<string:page_name>/')
 def static_page(page_name):
     return render_template('%s.html' % page_name)
-
-
-@app.route('/formgen')
-def appgen():
-	return render_template('Form_index.html')
-
-@app.route('/download.html')
-def send():
-	#request.form['htmlform']
-	return "abc"
 
 @app.route('/clickdata', methods=["GET", "POST"])
 def click_data_store():
@@ -41,9 +38,9 @@ def click_data_store():
 	xcoord = json_dict['x']
 	ycoord = json_dict['y']
 	time = json_dict['time']
-	print("xcoord",xcoord)
+	print("xcoord", xcoord)
 	print("ycoord", ycoord)
-	print("Time",time)
+	print("Time", time)
 	
 	with open("data/csv1.csv", "a") as file:
 		csv_file = csv.writer(file)
@@ -87,7 +84,6 @@ def click_data_store():
 	
 	return 'Success'
 
-
 @app.route('/visitdata', methods=["GET", "POST"])
 def visit_data_store():
 	json_dict = request.get_json(force=True);
@@ -102,7 +98,6 @@ def visit_data_store():
 	file.close()
 
 	return 'Success'
-
 
 @app.route('/scrolldata', methods=["GET", "POST"])
 def scroll_data_store():
@@ -129,12 +124,6 @@ def scroll_data_store():
 		
 	return 'Success'
 
-
-
-
-
-
-
 @app.route('/getheatmap', methods=['GET'])
 def get_heatmap():
 	CSV_PATH = 'data/clickdata.csv'
@@ -149,10 +138,8 @@ def get_heatmap():
 	return return_json_obj
 
 
-
 def __datetime(date_str):
     return datetime.strptime(date_str, '%H:%M')
-
 
 @app.route('/getvisitstats', methods=['GET'])
 def get_visits():
@@ -185,7 +172,6 @@ def get_visits():
 			if (e_min>0 and s_hour != e_hour and e_hour!=24):
 				time_container[s_hour + count][1] += 1
 
-
 	json_list = []
 	d = {}
 
@@ -194,8 +180,6 @@ def get_visits():
 
 	return_json_obj = json.dumps(d)
 	return return_json_obj
-
-
 
 @app.route('/getscrollstats', methods=['GET'])
 def get_scrolls():
@@ -213,8 +197,6 @@ def get_scrolls():
 
 	return_json_obj = json.dumps(d)
 	return return_json_obj
-
-
 
 if __name__ == "__main__":
 	app.run(
