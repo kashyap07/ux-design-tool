@@ -24,11 +24,11 @@
 							</form>
 						</div>
 					</div>
-					<a href="/download.html" download="true">
+					<!-- <a href="/download.html" download="true"> -->
 						<button id="singlebutton" name="singlebutton" class="btn" onclick="send_code()" style="color:black;border-radius:5px;padding-bottom: 6.5px;padding-left: 15px;padding-right: 15px;padding-top: 5.5px;font-weight: normal;height: 40px;box-shadow:none;background-image:none;background-color:white;border:1px solid rgb(204, 204, 204);">
 							Download
 						</button>
-					</a>
+					<!-- </a> -->
 				</div>
 				<div class="span6">
 					<h2>Drag & Drop components</h2>
@@ -55,9 +55,16 @@
 			function send_code() {
 				var content = document.getElementById("render").value;
 				console.log(content);
-				var xhttp = new XMLHttpRequest();
-				xhttp.open("POST", "/download", true);
-				xhttp.send(content);
+				var fd = document.createElement('form');
+				fd.action = "/download.html";
+				fd.method = "POST";
+				var inp = document.createElement('textarea');
+				inp.name = "fstring";
+				inp.value = content;
+				fd.appendChild(inp);
+				console.log(fd);
+				document.body.appendChild(fd);
+				fd.submit();
 			}
 		</script>
 	</body>
