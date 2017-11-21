@@ -4,36 +4,11 @@
 		<title>Blog Template for Bootstrap</title>
 
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-		<script src="jquery.min.js"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<script src="html2canvas.min.js"></script>
-		<script type="text/javascript">
-	var dothis=function(){
-			$("*").draggable();
-		$("*").droppable();
-			$("*").draggable();
-		$("*").droppable();
-	}
-	var takeScreenShot = function() {
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-			html2canvas(document.body, {
-					onrendered: function (canvas) {
-							 var tempcanvas=document.createElement('canvas');
-							tempcanvas.width=$(window).width();
-							tempcanvas.height=$(window).height();
-							var context=tempcanvas.getContext('2d');
-							context.drawImage(canvas,0,0);
-							var link=document.createElement("a");
-							link.href=tempcanvas.toDataURL('image/jpg');   //function blocks CORS
-							link.download = 'screenshot'+window.location.href+'.jpg';
-							link.click();
-					}
-			});
-	}
-</script>
 
 	</head>
-<body onload="dothis()" style="background-color: white"> 
+<body> 
 
 		<div class="blog-masthead">
 			<div class="container">
@@ -146,11 +121,11 @@
 
 		</div><!-- /.container -->
 
-<!-- 		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
+
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<!-- <script src="click-stats.min.js"></script>
+		<script src="click-stats.min.js"></script>
 		<script src="scroll-stats.min.js"></script>
-		<script src="visit-stats.min.js"></script> -->
+		<script src="visit-stats.min.js"></script>
 
 	</body>
 </html>

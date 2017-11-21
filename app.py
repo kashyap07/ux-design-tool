@@ -80,7 +80,7 @@ def click_data_store():
 		writer = csv.writer(f) 
 		writer.writerow(['x','y','value'])
 		for k,v in counter.items():
-			writer.writerow([k[0], k[1], v])
+			writer.writerow([int(k[0]//1.7), k[1], v])
 	
 	return 'Success'
 
