@@ -104,3 +104,5 @@ sftp-config.json
 .project
 
 .vscode/settings.json
+
+demo/.Rhistory
