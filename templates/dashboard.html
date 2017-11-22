@@ -121,13 +121,13 @@
 						</div>
 
 
-						<section class="discussion-qs q1 hidden">
+						<section onclick="answer()" class="discussion-qs q1 hidden">
 							How do I download the scripts ?
 						</section>
-						<section class="discussion-qs q2 hidden">
+						<section onclick="answer()" class="discussion-qs q2 hidden">
 							Is there a way to download these heatmaps ?
 						</section>
-						<section class="discussion-qs q3 hidden">
+						<section onclick="answer()" class="discussion-qs q3 hidden">
 							Can I get download the output in excel ?
 						</section>
 
@@ -161,5 +161,12 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="../static/js/hamburger.js"></script>
 		<script src="../static/js/discussion-box.js"></script>
+
+		<script>
+			function answer() {
+				prompt("Enter our answer here", "...");
+			}
+			
+		</script>
 	</body>
 </html>
